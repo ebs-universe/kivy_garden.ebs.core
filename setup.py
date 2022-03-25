@@ -7,8 +7,8 @@ from os import path
 
 here = path.abspath(path.dirname(__file__))
 
-filename = path.join(here, 'kivy_garden', 'flower', '_version.py')
-# change this                              ^^^^^^
+filename = path.join(here, 'kivy_garden', 'ebs', 'core', '_version.py')
+# change this
 locals = {}
 with open(filename, "rb") as fh:
     exec(compile(fh.read(), filename, 'exec'), globals(), locals)
@@ -17,17 +17,18 @@ __version__ = locals['__version__']
 with open(path.join(here, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
-URL = 'https://github.com/kivy-garden/flower'
+URL = 'https://github.com/chintal/ebs-widgetset-kivy'
 
 setup(
-    name='kivy_garden.flower',
+    name='kivy_garden.ebs.core',
     version=__version__,
-    description='A kivy garden flower demo.',
+    description='A collection of pure python kivy widgets and widget '
+                'infrastructure used internally by the EBS kivy GUI stack.',
     long_description=long_description,
     long_description_content_type='text/markdown',
     url=URL,
-    author='Kivy',
-    author_email='kivy@kivy.org',
+    author='Chintalagiri Shashank',
+    author_email='shashank.chintalagiri@gmail.com',
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
