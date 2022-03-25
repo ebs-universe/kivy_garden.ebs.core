@@ -1,4 +1,4 @@
-name: Garden flower
+name: Kivy Garden EBS Core
 on: [push, pull_request]
 
 jobs:
