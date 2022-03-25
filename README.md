@@ -50,7 +50,7 @@ It does have (mostly subjective) advantages too, though :
 Library Contents
 ----------------
 
-The core widget infrastructure provided by this library contains:
+The core widget infrastructure provided by this library includes:
 
   - Colors :
     - Color Manipulation Utilities

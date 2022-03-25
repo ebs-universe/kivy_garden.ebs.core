@@ -13,4 +13,6 @@ class RoundedBleedImageButton(BleedImageButton):
     _bgelement = RoundedRectangle
 
     def __init__(self, radius=None, **kwargs):
-        super(RoundedBleedImageButton, self).__init__(bgparams={'radius': radius}, **kwargs)
+        super(RoundedBleedImageButton, self).__init__(
+            bgparams={'radius': radius}, **kwargs
+        )

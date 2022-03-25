@@ -17,7 +17,7 @@ __version__ = locals['__version__']
 with open(path.join(here, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
-URL = 'https://github.com/chintal/ebs-widgetset-kivy'
+URL = 'https://github.com/ebs-universe/kivy_garden.ebs.core'
 
 setup(
     name='kivy_garden.ebs.core',
@@ -38,15 +38,20 @@ setup(
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
     ],
     keywords='Kivy kivy-garden',
 
     packages=find_namespace_packages(include=['kivy_garden.*']),
-    install_requires=[],
+    install_requires=[
+        'kivy>=1.11.1',
+        'colorthief',  # Used by BleedImage
+    ],
     extras_require={
         'dev': ['pytest>=3.6', 'pytest-cov', 'pytest-asyncio',
                 'sphinx_rtd_theme'],
-        'ci': ['coveralls', 'pycodestyle'],
+        'ci': ['coveralls', 'pycodestyle', 'pydocstyle'],
     },
     package_data={},
     data_files=[],

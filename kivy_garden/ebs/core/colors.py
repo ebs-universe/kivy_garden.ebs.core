@@ -89,4 +89,6 @@ class RoundedColorBoxLayout(ColorBoxLayout):
     _bgelement = RoundedRectangle
 
     def __init__(self, radius=None, **kwargs):
-        super(RoundedColorBoxLayout, self).__init__(bgparams={'radius': radius}, **kwargs)
+        super(RoundedColorBoxLayout, self).__init__(
+            bgparams={'radius': radius}, **kwargs
+        )
