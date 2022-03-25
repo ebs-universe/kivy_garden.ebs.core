@@ -6,14 +6,6 @@ from io import open
 from os import path
 
 here = path.abspath(path.dirname(__file__))
-
-filename = path.join(here, 'kivy_garden', 'ebs', 'core', '_version.py')
-# change this
-locals = {}
-with open(filename, "rb") as fh:
-    exec(compile(fh.read(), filename, 'exec'), globals(), locals)
-__version__ = locals['__version__']
-
 with open(path.join(here, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
@@ -21,7 +13,6 @@ URL = 'https://github.com/ebs-universe/kivy_garden.ebs.core'
 
 setup(
     name='kivy_garden.ebs.core',
-    version=__version__,
     description='A collection of pure python kivy widgets and widget '
                 'infrastructure used internally by the EBS kivy GUI stack.',
     long_description=long_description,
@@ -48,6 +39,8 @@ setup(
         'kivy>=1.11.1',
         'colorthief',  # Used by BleedImage
     ],
+    setup_requires=['setuptools_scm'],
+    use_scm_version=True,
     extras_require={
         'dev': ['pytest>=3.6', 'pytest-cov', 'pytest-asyncio',
                 'sphinx_rtd_theme'],
