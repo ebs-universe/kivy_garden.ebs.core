@@ -79,17 +79,23 @@ The core widget infrastructure provided by this library includes:
 Derived EBS Kivy Widgets 
 ------------------------
 
-(published)
+Published Derived Widgets
+
+  - [MarqueeLabel](https://github.com/ebs-universe/kivy_garden.ebs.marquee)
+  - [CefBrowser](https://github.com/ebs-universe/kivy_garden.ebs.cefkivy)
   - <>
 
-(to be refactored, cleaned up and published separately)
-  - MarqueeLabel
+Unrelated other widgets (no kivy_garden.ebs dependency)
+
+  - [ProgressSpinner](https://github.com/ebs-universe/kivy_garden.ebs.progressspinner)
+
+to be refactored, cleaned up and published separately : 
+  
   - SimpleDigitalClock
   - ImageGallery
   - PDFPlayer
-  - CEFBrowser (cefkivy-ebs)
   - Animated Translatable Tables
-  
+
 CI
 --
 
