@@ -85,7 +85,8 @@ Published Derived Widgets
   - [CefBrowser](https://github.com/ebs-universe/kivy_garden.ebs.cefkivy)
   - [Clocks](https://github.com/ebs-universe/kivy_garden.ebs.clocks)
     - SimpleDigitalClock
-  - <>
+  - [ImageGallery](https://github.com/ebs-universe/kivy_garden.ebs.gallery)
+  - [PDFPlayer](https://github.com/ebs-universe/kivy_garden.ebs.pdfplayer)
 
 Unrelated other widgets (no kivy_garden.ebs dependency)
 
@@ -93,8 +94,6 @@ Unrelated other widgets (no kivy_garden.ebs dependency)
 
 to be refactored, cleaned up and published separately : 
   
-  - ImageGallery
-  - PDFPlayer
   - Animated Translatable Tables
 
 CI
