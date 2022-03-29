@@ -83,6 +83,8 @@ Published Derived Widgets
 
   - [MarqueeLabel](https://github.com/ebs-universe/kivy_garden.ebs.marquee)
   - [CefBrowser](https://github.com/ebs-universe/kivy_garden.ebs.cefkivy)
+  - [Clocks](https://github.com/ebs-universe/kivy_garden.ebs.clocks)
+    - SimpleDigitalClock
   - <>
 
 Unrelated other widgets (no kivy_garden.ebs dependency)
@@ -91,7 +93,6 @@ Unrelated other widgets (no kivy_garden.ebs dependency)
 
 to be refactored, cleaned up and published separately : 
   
-  - SimpleDigitalClock
   - ImageGallery
   - PDFPlayer
   - Animated Translatable Tables
