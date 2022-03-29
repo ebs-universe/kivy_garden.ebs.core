@@ -92,10 +92,6 @@ Unrelated other widgets (no kivy_garden.ebs dependency)
 
   - [ProgressSpinner](https://github.com/ebs-universe/kivy_garden.ebs.progressspinner)
 
-to be refactored, cleaned up and published separately : 
-  
-  - Animated Translatable Tables
-
 CI
 --
 
