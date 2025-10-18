@@ -34,7 +34,6 @@ class GuiPalette(object):
 
 
 class Gradient(object):
-
     @staticmethod
     def horizontal(*args):
         texture = Texture.create(size=(len(args), 1), colorfmt='rgba')
@@ -52,10 +51,17 @@ class Gradient(object):
 
 class BackgroundColorMixin(object):
     bgcolor = ListProperty([1, 1, 1, 1])
-    _bgelement = Rectangle
 
-    def __init__(self, bgcolor=None, **bgparams):
+    def __init__(self, bgcolor=None, bgradius=None, **bgparams):
         self._bgparams = bgparams
+        self._bgradius = bgradius
+
+        if self._bgradius:
+            self._bgelement = RoundedRectangle
+            self._bgparams['radius'] = self._bgradius
+        else:
+            self._bgelement = Rectangle
+
         self.bgcolor = bgcolor or [1, 1, 1, 1]
         self._render_bg()
         self.bind(size=self._render_bg, pos=self._render_bg)
@@ -80,12 +86,14 @@ class BackgroundColorMixin(object):
 class ColorBoxLayout(BackgroundColorMixin, BoxLayout):
     def __init__(self, **kwargs):
         bgcolor = kwargs.pop('bgcolor')
+        bgradius = kwargs.pop('bgradius', None)
         bgparams = kwargs.pop('bgparams', {})
         BoxLayout.__init__(self, **kwargs)
-        BackgroundColorMixin.__init__(self, bgcolor=bgcolor, **bgparams)
+        BackgroundColorMixin.__init__(self, bgcolor=bgcolor, bgradius=bgradius, **bgparams)
 
 
 class RoundedColorBoxLayout(ColorBoxLayout):
+    # TODO Deprecate
     _bgelement = RoundedRectangle
 
     def __init__(self, radius=None, **kwargs):
