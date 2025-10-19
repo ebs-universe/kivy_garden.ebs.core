@@ -63,8 +63,7 @@ class ExpansionPanel(ColorBoxLayout):
 
         self.bind(minimum_height=self.setter("height"))
         self.title = title
-        self.collapsible = collapsible
-        self._is_open = not collapsible
+        self._is_open = False
 
         body_bg_color = kwargs.pop("body_bg_color", [0, 0, 0, 0.7])
         body_bg_radius = kwargs.pop("body_bg_radius", [dp(6)])
@@ -100,16 +99,19 @@ class ExpansionPanel(ColorBoxLayout):
         self.body_container = ColorBoxLayout(orientation="vertical", size_hint_y=None, spacing=dp(5),
                                              bgcolor=body_bg_color, bgradius=body_bg_radius)
         self.body_container.bind(minimum_height=self.body_container.setter("height"))
+        self.collapsible = collapsible
 
     def on_collapsible(self, *_):
-        if self.collapsible:
-            if not self.arrow.parent:
-                self.header.add_widget(self.arrow)
-        else:
-            if not self._is_open:
-                self._toggle()
+        if not self.collapsible:
             if self.arrow.parent:
                 self.header.remove_widget(self.arrow)
+            # force open
+            if not self._is_open:
+                if not self.body_container.parent:
+                    self.add_widget(self.body_container)
+        else:
+            if not self.arrow.parent:
+                self.header.add_widget(self.arrow)
 
     def _update_bg(self, *_):
         """Ensure header background follows widget bounds."""
@@ -120,7 +122,7 @@ class ExpansionPanel(ColorBoxLayout):
         self.body_container.add_widget(widget)
 
     def _toggle(self, *_):
-        if not self.collapsible and self._is_open:
+        if not self.collapsible:
             return
         if self._is_open:
             if self.body_container.parent is self:
