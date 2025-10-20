@@ -6,6 +6,14 @@ from kivy.clock import Clock
 from .colors import BackgroundColorMixin
 
 
+class ColorLabel(BackgroundColorMixin, Label):
+    def __init__(self, **kwargs):
+        bgcolor = kwargs.pop('bgcolor', None)
+        bgradius = kwargs.pop('bgradius', None)
+        Label.__init__(self, **kwargs)
+        BackgroundColorMixin.__init__(self, bgcolor=bgcolor, bgradius=bgradius)
+
+
 class WrappingLabel(Label):
     def __init__(self, **kwargs):
         super(WrappingLabel, self).__init__(**kwargs)
@@ -15,11 +23,12 @@ class WrappingLabel(Label):
         )
 
 
-class ColorLabel(BackgroundColorMixin, Label):
+class WrappingColorLabel(BackgroundColorMixin, WrappingLabel):
     def __init__(self, **kwargs):
         bgcolor = kwargs.pop('bgcolor', None)
-        Label.__init__(self, **kwargs)
-        BackgroundColorMixin.__init__(self, bgcolor=bgcolor)
+        bgradius = kwargs.pop('bgradius', None)
+        WrappingLabel.__init__(self, **kwargs)
+        BackgroundColorMixin.__init__(self, bgcolor=bgcolor, bgradius=bgradius)
 
 
 class SelfScalingLabel(Label):
@@ -32,6 +41,11 @@ class SelfScalingLabel(Label):
         # print("Scaling {0} ?> {1}".format(self.texture_size[0], self.width))
         if self.texture_size[0] > self.width:
             self.font_size -= 1  # reduce font size if too wide
+
+
+class SelfScalingColorLabel(SelfScalingLabel, ColorLabel):
+    def __init__(self, **kwargs):
+        super(SelfScalingColorLabel, self).__init__(**kwargs)
 
 
 class SelfScalingOneLineLabel(Label):
@@ -94,6 +108,9 @@ class SelfScalingOneLineLabel(Label):
         Clock.schedule_once(lambda dt: _fit_text_size(), 0)
 
 
-class SelfScalingColorLabel(SelfScalingLabel, ColorLabel):
+class SelfScalingOneLineColorLabel(BackgroundColorMixin, SelfScalingOneLineLabel):
     def __init__(self, **kwargs):
-        super(SelfScalingColorLabel, self).__init__(**kwargs)
+        bgcolor = kwargs.pop('bgcolor', None)
+        bgradius = kwargs.pop('bgradius', None)
+        SelfScalingOneLineLabel.__init__(self, **kwargs)
+        BackgroundColorMixin.__init__(self, bgcolor=bgcolor, bgradius=bgradius)
