@@ -19,7 +19,7 @@ class WrappingLabel(Label):
         super(WrappingLabel, self).__init__(**kwargs)
         self.bind(
             width=lambda *x: self.setter('text_size')(self, (self.width, None)),  # noqa
-            texture_size=lambda *x: self.setter('height')(self, self.texture_size[1])  # noqa
+            texture_size=lambda *x: self.setter('height')(self, self.texture_size[1] + self.padding_y)  # noqa
         )
 
 
