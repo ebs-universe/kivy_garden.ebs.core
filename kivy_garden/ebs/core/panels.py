@@ -97,7 +97,7 @@ class ExpansionPanel(ColorBoxLayout):
         self.add_widget(self.header)
 
         self.body_container = ColorBoxLayout(orientation="vertical", size_hint_y=None, spacing=dp(5),
-                                             bgcolor=body_bg_color, bgradius=body_bg_radius)
+                                             bgcolor=body_bg_color, bgradius=body_bg_radius, padding=dp(14))
         self.body_container.bind(minimum_height=self.body_container.setter("height"))
         self.collapsible = collapsible
 
