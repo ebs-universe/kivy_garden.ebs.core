@@ -1,6 +1,6 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
-*_generated_*
+**/_generated_version.py
 *.py[cod]
 *$py.class
 

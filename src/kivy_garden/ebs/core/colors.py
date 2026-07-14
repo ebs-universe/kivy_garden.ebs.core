@@ -85,7 +85,7 @@ class BackgroundColorMixin(object):
 
 class ColorBoxLayout(BackgroundColorMixin, BoxLayout):
     def __init__(self, **kwargs):
-        bgcolor = kwargs.pop('bgcolor')
+        bgcolor = kwargs.pop('bgcolor', None)
         bgradius = kwargs.pop('bgradius', None)
         bgparams = kwargs.pop('bgparams', {})
         BoxLayout.__init__(self, **kwargs)
